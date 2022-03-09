@@ -173,7 +173,18 @@ public class NombreBinaire {
      
      //DEFI 6 - Renvoie si this est égal à mot2 ou non
      public boolean estEgal(NombreBinaire mot2) {
-        return false;
+		 
+        // Initialisation
+        boolean res = false;
+        String strPrem = this.toString();
+        String strSec = mot2.toString();
+        
+        // Teste si les deux chaînes sont égales
+        if(strPrem.equals(strSec)){
+            res = true;
+        }
+         
+        return res;
      }
      
      //DEFI 7 - Renvoie si un nombre est pair
