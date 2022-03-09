@@ -36,23 +36,25 @@ public class Network {
      * Envoi d'un message
      */
     public void sendMessage(String message) throws IOException {
-       
-       this.pw.print(message);
-    
+       System.out.println(">>"+ message);
+       this.pw.println(message);
     }
         
     /**
      * Réception d'un message
      */
     public String receiveMessage() throws IOException {
-        
-        return this.bufr.readLine();
+        String message = this.bufr.readLine();
+        System.out.println("<<" + message);
+        return message;
     }
     
     /**
      * Fin de la connexion
+     * @throws java.io.IOException
      */
-    public void end() throws IOException {
-        this.pw.print("FIN");
+    public void end() throws IOException 
+    {
+        this.sendMessage("FIN");
     }
 }

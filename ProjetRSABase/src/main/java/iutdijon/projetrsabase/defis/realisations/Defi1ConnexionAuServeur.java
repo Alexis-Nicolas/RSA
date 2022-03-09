@@ -13,18 +13,18 @@ public class Defi1ConnexionAuServeur extends Defi {
     @Override
     public void executer() throws IOException{
         Network net = new Network();
-        String s = net.receiveMessage();
-        System.out.println(s);
-        int i;
-        s = net.receiveMessage();
-        while(s!="Défi validé"||s!="”Défi échoué !"){
-            System.out.println(s);
-            i = Integer.parseInt(s)+1;
-            System.out.println(i);
-            net.sendMessage(Integer.toString(i));
-            s = net.receiveMessage();
-            System.out.println(s);
-            s = net.receiveMessage();
+        String messageServeur = net.receiveMessage();
+        Integer entierRecu;
+        //reçoit 1 er entier
+        messageServeur = net.receiveMessage();
+        while(!messageServeur.equals("Défi validé")|| !messageServeur.equals("Défi échoué!"))
+        {
+            entierRecu = Integer.parseInt(messageServeur)+1;
+            net.sendMessage(Integer.toString(entierRecu));
+            //verif si ok ou non
+            messageServeur = net.receiveMessage();
+            //recoit entier suivant
+            messageServeur = net.receiveMessage();
         }
         net.end();
     }
