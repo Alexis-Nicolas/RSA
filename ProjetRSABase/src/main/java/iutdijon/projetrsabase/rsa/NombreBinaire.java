@@ -130,6 +130,29 @@ public class NombreBinaire {
      
      //DEFI 2 - Renvoie le résultat de l'addition de this avec mot2
      public NombreBinaire addition(NombreBinaire mot2) {
+         int R =0;
+         ArrayList<NombreBinaire> nb1 = this.scinder(1);
+         ArrayList<NombreBinaire> nb2 = mot2.scinder(1);
+         int b1 ;
+         int b2 ;
+         int resI;
+         String res = "";
+         int i = 0;
+         while(i<=this.getTaille()||i<=mot2.getTaille()||R!=0){
+             b1 = Integer.parseInt(nb1.get(0).toString());
+             b2 = Integer.parseInt(nb2.get(0).toString());
+             resI = b1+b2+R;
+             switch(resI){
+                 case 1 :
+                     res+="0";
+                     R=1;
+                 break;
+                 case 2 : 
+                 case 3 : 
+                     
+             }
+             i++;
+         }
         return null;
      }
      
