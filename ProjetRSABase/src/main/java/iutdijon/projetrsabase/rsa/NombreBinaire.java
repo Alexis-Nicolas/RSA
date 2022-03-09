@@ -155,7 +155,13 @@ public class NombreBinaire {
      
      //DEFI 7 - Renvoie si un nombre est pair
      public boolean estPair() {
-         return false;
+        boolean res = true;
+         
+        if(this.get(0)){
+            res = false;
+        }
+         
+        return res;
      }
      
      //DEFI 8 - Calcul la multiplication de this avec mot2
