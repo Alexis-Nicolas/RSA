@@ -14,38 +14,45 @@ import java.io.IOException;
  *
  * @author lm178867
  */
-public class Defi7EstPair extends Defi {
+public class Defi3Decalage extends Defi {
 
     @Override
     public void executer() throws IOException {
+        //Création du network
         Network net = new Network();
+        
         //Message d'annonce
         String messageServeur = net.receiveMessage();
         
-        //reçoit l'entier
-        messageServeur = net.receiveMessage();
+        //Reçoit le nombre binaire
+        String nombre = net.receiveMessage();
+        
+        //reçoit le nombre de décalage
+        String nbDecalage = net.receiveMessage();
         
         
         while(!messageServeur.equals("Défi validé")|| !messageServeur.equals("Défi échoué!"))
         {
             
             //Création du nombre binaire
-            NombreBinaire nb = new NombreBinaire(messageServeur);
+            NombreBinaire nb = new NombreBinaire(nombre);
             
-            System.out.println(nb);
+            //On va instancier le nombre binaire avec un décalage
+            NombreBinaire messageAEnvoyer = nb.decalage(Integer.parseInt(nbDecalage));
             
-            boolean messageAEnvoyer = nb.estPair();
-            
-            //On envoie le message true ou false
-            net.sendMessage(String.valueOf(messageAEnvoyer));
+            //On envoie le message en string
+            net.sendMessage(messageAEnvoyer.toString());
             
             
             //verif si ok ou non
             messageServeur = net.receiveMessage();
             
             
-            //recoit entier suivant
-            messageServeur = net.receiveMessage();
+            //recoit le nombre binaire suivant
+            nombre = net.receiveMessage();
+            
+            //recoit le nombre de décalage suivant
+            nbDecalage = net.receiveMessage();
         }
         net.end();
     }

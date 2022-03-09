@@ -158,7 +158,17 @@ public class NombreBinaire {
      
      //DEFI 3 - Caclule le décalage de n bits (multiplie par 2^n)
      public NombreBinaire decalage(int n) {
-         return null;
+        NombreBinaire nb = new NombreBinaire(this);
+        this.forcerTaille(this.getTaille()+ n);
+        
+        for(int i = 0 ; i < this.getTaille(); i++){
+            if(i < n){
+                set(i,false);
+            }else{
+               set(i,nb.get(i-n)); 
+            }
+        } 
+        return this;
      }
      
      //DEFI 4 - renvoie le resultat de l'addition de this avec mot3
