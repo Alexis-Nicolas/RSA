@@ -135,25 +135,50 @@ public class NombreBinaire {
          ArrayList<NombreBinaire> nb2 = mot2.scinder(1);
          int b1 ;
          int b2 ;
-         int resI;
+         int resI=1;
          String res = "";
          int i = 0;
-         while(i<=this.getTaille()||i<=mot2.getTaille()||R!=0){
-             b1 = Integer.parseInt(nb1.get(0).toString());
-             b2 = Integer.parseInt(nb2.get(0).toString());
-             resI = b1+b2+R;
-             switch(resI){
-                 case 1 :
-                     res+="0";
-                     R=1;
-                 break;
-                 case 2 : 
-                 case 3 : 
-                     
+         while(resI!=0||i<=this.getTaille()||i<=mot2.getTaille()){
+             if(i<this.getTaille()){
+                b1 = Integer.parseInt(nb1.get(i).toString());
              }
+             else{
+                 b1=0;
+             }
+             if(i<mot2.getTaille()){
+                b2 = Integer.parseInt(nb2.get(i).toString());
+             }
+             else{
+                 b2=0;
+             }
+             System.out.println("b1 = "+b1);
+             System.out.println("b2 = "+b2);
+             System.out.println("R = "+R);
+             resI = b1+b2+R;
+             System.out.println("Resultat addition : "+resI);
+             if(resI==0){
+                 res+="0";
+                 R=0;
+             }
+             if(resI==1){
+                 res+="1";
+                 R=0;
+             }
+             if(resI==2){
+                 res+="0";
+                 R=1;
+             }
+             if(resI==3){
+                 res+="1";
+                 R=1;
+             }
+             System.out.println("Resultat temp :"+res);
              i++;
          }
-        return null;
+         StringBuilder strb = new StringBuilder(res);
+         res = strb.reverse().toString();
+         NombreBinaire nbb = new NombreBinaire(res);
+        return nbb;
      }
      
      //DEFI 3 - Caclule le décalage de n bits (multiplie par 2^n)
