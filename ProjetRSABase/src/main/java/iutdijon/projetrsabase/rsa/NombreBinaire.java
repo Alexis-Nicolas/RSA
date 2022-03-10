@@ -225,7 +225,13 @@ public class NombreBinaire {
      
     //DEFI 11 - Génère un nombre binaire aléatoire de "taille" bits au maximum.
     public static NombreBinaire randomAvecTailleMax(int taille) {
-       return null;
+        String nb ="";
+        for (int i=0; i < taille; i++){
+            String nombreRandom = String.valueOf(0 + (int)(Math.random() * ((1 - 0) + 1)));
+            nb += nombreRandom;
+        }
+        
+        return new NombreBinaire(nb);
     }
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide

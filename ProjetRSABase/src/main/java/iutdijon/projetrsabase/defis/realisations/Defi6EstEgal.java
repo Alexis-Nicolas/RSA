@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * @author rc438799
  */
-public class DefiEstEgal extends Defi{
+public class Defi6EstEgal extends Defi{
 
     @Override
     public void executer() throws IOException {
