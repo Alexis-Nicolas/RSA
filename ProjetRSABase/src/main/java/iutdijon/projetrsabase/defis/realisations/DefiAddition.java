@@ -26,11 +26,7 @@ public class DefiAddition extends Defi{
         while(!messageServeur.equals("Défi validé")|| !messageServeur.equals("Défi échoué!"))
         {
             nb1 = new NombreBinaire(net.receiveMessage());
-            System.out.println("Premier nombre binaire :"+nb1);
-            System.out.println("-----");
             nb2 = new NombreBinaire(net.receiveMessage());
-            System.out.println("Deuxième nombre binaire :"+nb2);
-            System.out.println("-----");
             NombreBinaire nbRes = nb1.addition(nb2);
             System.out.println(nbRes);
             net.sendMessage(nbRes.toString());

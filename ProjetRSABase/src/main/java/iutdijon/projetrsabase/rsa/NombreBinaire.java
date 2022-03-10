@@ -151,11 +151,7 @@ public class NombreBinaire {
              else{
                  b2=0;
              }
-             System.out.println("b1 = "+b1);
-             System.out.println("b2 = "+b2);
-             System.out.println("R = "+R);
              resI = b1+b2+R;
-             System.out.println("Resultat addition : "+resI);
              if(resI==0){
                  res+="0";
                  R=0;
@@ -172,7 +168,6 @@ public class NombreBinaire {
                  res+="1";
                  R=1;
              }
-             System.out.println("Resultat temp :"+res);
              i++;
          }
          StringBuilder strb = new StringBuilder(res);
