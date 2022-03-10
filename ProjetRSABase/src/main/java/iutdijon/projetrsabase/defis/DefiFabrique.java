@@ -24,6 +24,7 @@ public class DefiFabrique {
             //case 4 : defi = new DefiSoustraction(); break;
             case 6 : defi = new Defi6EstEgal(); break;
             case 11 : defi = new Defi11RandomTailleFixee(); break;
+            case 14 : defi = new Defi14RandomBornes(); break;
             default : throw new UnsupportedOperationException("Défis non implémenté !");
         }
         

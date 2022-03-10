@@ -246,6 +246,8 @@ public class NombreBinaire {
      
     //DEFI 14 - renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
     public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
+        //Utiliser les fonctions soustractions et additions ?
+        
         return null;
     }
     
