@@ -135,30 +135,60 @@ public class NombreBinaire {
          ArrayList<NombreBinaire> nb2 = mot2.scinder(1);
          int b1 ;
          int b2 ;
-         int resI;
+         int resI=1;
          String res = "";
          int i = 0;
-         while(i<=this.getTaille()||i<=mot2.getTaille()||R!=0){
-             b1 = Integer.parseInt(nb1.get(0).toString());
-             b2 = Integer.parseInt(nb2.get(0).toString());
+         while(resI!=0||i<=this.getTaille()||i<=mot2.getTaille()){
+             if(i<this.getTaille()){
+                b1 = Integer.parseInt(nb1.get(i).toString());
+             }
+             else{
+                 b1=0;
+             }
+             if(i<mot2.getTaille()){
+                b2 = Integer.parseInt(nb2.get(i).toString());
+             }
+             else{
+                 b2=0;
+             }
              resI = b1+b2+R;
-             switch(resI){
-                 case 1 :
-                     res+="0";
-                     R=1;
-                 break;
-                 case 2 : 
-                 case 3 : 
-                     
+             if(resI==0){
+                 res+="0";
+                 R=0;
+             }
+             if(resI==1){
+                 res+="1";
+                 R=0;
+             }
+             if(resI==2){
+                 res+="0";
+                 R=1;
+             }
+             if(resI==3){
+                 res+="1";
+                 R=1;
              }
              i++;
          }
-        return null;
+         StringBuilder strb = new StringBuilder(res);
+         res = strb.reverse().toString();
+         NombreBinaire nbb = new NombreBinaire(res);
+        return nbb;
      }
      
      //DEFI 3 - Caclule le décalage de n bits (multiplie par 2^n)
      public NombreBinaire decalage(int n) {
-         return null;
+        NombreBinaire nb = new NombreBinaire(this);
+        this.forcerTaille(this.getTaille()+ n);
+        
+        for(int i = 0 ; i < this.getTaille(); i++){
+            if(i < n){
+                set(i,false);
+            }else{
+               set(i,nb.get(i-n)); 
+            }
+        } 
+        return this;
      }
      
      //DEFI 4 - renvoie le resultat de l'addition de this avec mot3
@@ -173,12 +203,29 @@ public class NombreBinaire {
      
      //DEFI 6 - Renvoie si this est égal à mot2 ou non
      public boolean estEgal(NombreBinaire mot2) {
-        return false;
+		 
+        // Initialisation
+        boolean res = false;
+        String strPrem = this.toString();
+        String strSec = mot2.toString();
+        
+        // Teste si les deux chaînes sont égales
+        if(strPrem.equals(strSec)){
+            res = true;
+        }
+         
+        return res;
      }
      
      //DEFI 7 - Renvoie si un nombre est pair
      public boolean estPair() {
-         return false;
+        boolean res = true;
+         
+        if(this.get(0)){
+            res = false;
+        }
+         
+        return res;
      }
      
      //DEFI 8 - Calcul la multiplication de this avec mot2
@@ -198,7 +245,13 @@ public class NombreBinaire {
      
     //DEFI 11 - Génère un nombre binaire aléatoire de "taille" bits au maximum.
     public static NombreBinaire randomAvecTailleMax(int taille) {
-       return null;
+        String nb ="";
+        for (int i=0; i < taille; i++){
+            String nombreRandom = String.valueOf(0 + (int)(Math.random() * ((1 - 0) + 1)));
+            nb += nombreRandom;
+        }
+        
+        return new NombreBinaire(nb);
     }
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide
@@ -213,6 +266,8 @@ public class NombreBinaire {
      
     //DEFI 14 - renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
     public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
+        //Utiliser les fonctions soustractions et additions ?
+        
         return null;
     }
     
