@@ -207,7 +207,7 @@ public class NombreBinaire {
                  mot2.set(mot2.getTaille()+i, false);
              }
          }
-         for(int i = 0;i<mot2.getTaille();i++){
+         for(int i = 0;i<this.getTaille();i++){
              
             b1= this.get(i);
             b2=mot2.get(i);

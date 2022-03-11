@@ -24,7 +24,7 @@ public class DefiSoustraction extends Defi{
         String messageServeur = net.receiveMessage();
         while(!messageServeur.equals("Défi validé")|| !messageServeur.equals("Défi échoué!"))
         {
-           bit1= messageServeur;
+           bit1= net.receiveMessage();
            bit2= net.receiveMessage();
            NombreBinaire n1 = new NombreBinaire(bit1); 
            NombreBinaire n2 = new NombreBinaire(bit2); 
@@ -32,10 +32,7 @@ public class DefiSoustraction extends Defi{
            net.sendMessage(n3.toString());
            //verif si ok ou non
             messageServeur = net.receiveMessage();
-            //recoit nbbinaire1 suivant
-            bit1 = net.receiveMessage();
-            //recoit nbbinaire2 suivant
-            bit2 = net.receiveMessage();
+           
         }
         net.end();
     }
