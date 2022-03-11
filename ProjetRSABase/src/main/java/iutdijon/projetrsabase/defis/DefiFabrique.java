@@ -21,7 +21,7 @@ public class DefiFabrique {
             case 7 : defi = new Defi7EstPair(); break;
             case 3 : defi = new Defi3Decalage(); break;
             case 2 : defi = new DefiAddition(); break;
-            //case 4 : defi = new DefiSoustraction(); break;
+            case 4 : defi = new DefiSoustraction(); break;
             case 6 : defi = new Defi6EstEgal(); break;
             case 11 : defi = new Defi11RandomTailleFixee(); break;
             case 14 : defi = new Defi14RandomBornes(); break;

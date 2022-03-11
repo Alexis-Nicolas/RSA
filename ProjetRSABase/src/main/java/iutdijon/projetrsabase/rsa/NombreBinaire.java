@@ -193,7 +193,51 @@ public class NombreBinaire {
      
      //DEFI 4 - renvoie le resultat de l'addition de this avec mot3
      public NombreBinaire soustraction(NombreBinaire mot2) {
-        return null;
+        NombreBinaire R = new NombreBinaire();
+         int retenu = 0;
+         int bit1  =0;
+         int bit2 =0;
+         int val = 0;
+         int result =0;
+         boolean b1 = false;
+         boolean b2 = false;
+         if (mot2.getTaille()<this.getTaille()){
+             val = this.getTaille()-mot2.getTaille();
+             for(int i = 0;i<val;i++){
+                 mot2.set(mot2.getTaille()+i, false);
+             }
+         }
+         for(int i = 0;i<mot2.getTaille();i++){
+             
+            b1= this.get(i);
+            b2=mot2.get(i);
+            if (b1){
+                bit1 = 1;
+            }else if (!b1){
+                bit1=0;
+            }
+            if (b2){
+                bit2 = 1;
+            }else if (!b2){
+                bit2=0;
+            }
+            if ((bit1-bit2-retenu)==0){
+                R.set(i, false);
+                retenu=0;
+            }else if ((bit1-bit2-retenu)==1){
+                R.set(i, true);
+                retenu=0;
+            }else if ((bit1-bit2-retenu)==-1){
+                R.set(i, true);
+                retenu=1;
+            }else if ((bit1-bit2-retenu)==-2){
+                R.set(i, false);
+                retenu=1;
+            }
+            
+             
+         }
+        return R;
      }
      
      //DEFI 5 - Renvoie si this est plus petit ou égal à mot2
