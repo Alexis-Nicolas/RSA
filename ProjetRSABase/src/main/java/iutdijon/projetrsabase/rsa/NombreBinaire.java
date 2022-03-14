@@ -145,7 +145,33 @@ public class NombreBinaire {
      
      //DEFI 5 - Renvoie si this est plus petit ou égal à mot2
      public boolean estInferieurA(NombreBinaire mot2) {
-         return false;
+        boolean estInferieur = false;
+        if(this.getTaille()-1 < mot2.getTaille()-1)
+        {
+            estInferieur = true;
+        }
+        else if(this.getTaille()-1 == mot2.getTaille()-1)
+        {
+            int numBit = this.getTaille()-1;
+            boolean comparaisonFinie = false;
+            //on compare les nombres bit à bit
+            while((numBit >= 0) && (!comparaisonFinie))
+            {
+                //mot 1 inférieur
+                if((this.get(numBit) == false) && (mot2.get(numBit)==true))
+                {
+                    estInferieur = true;
+                    comparaisonFinie = true;
+                }
+                //mot 2 inférieur
+                else if((this.get(numBit) == true) && (mot2.get(numBit) == false))
+                {
+                    comparaisonFinie = true;
+                }
+                numBit --;
+            }
+        }
+        return estInferieur;
      }
      
      //DEFI 6 - Renvoie si this est égal à mot2 ou non
