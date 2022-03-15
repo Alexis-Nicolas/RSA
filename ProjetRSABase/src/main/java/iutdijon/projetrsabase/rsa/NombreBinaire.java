@@ -1,5 +1,6 @@
 package iutdijon.projetrsabase.rsa;
 
+import static java.lang.Math.abs;
 import java.util.ArrayList;
 import java.util.BitSet;
 
@@ -300,7 +301,17 @@ public class NombreBinaire {
      
      //DEFI 8 - Calcul la multiplication de this avec mot2
      public NombreBinaire multiplication(NombreBinaire mot2) {
-        return null;
+        NombreBinaire a = new NombreBinaire();
+        NombreBinaire c = new NombreBinaire();
+        NombreBinaire b = new NombreBinaire();
+        for(int i =0;i<this.getTaille();i++){
+            if (this.get(i)){
+                c=new NombreBinaire(mot2);
+                a = c.decalage(i);
+                b=b.addition(a);
+            }
+        }
+        return b;
      }
 
      //DEFI 9 - Calcul le quotient dans la division euclidienne de this par mot2

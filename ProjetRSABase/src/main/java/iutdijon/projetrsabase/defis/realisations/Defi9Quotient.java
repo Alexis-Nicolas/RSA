@@ -14,7 +14,7 @@ import java.io.IOException;
  *
  * @author alexi
  */
-public class Defi8Multiplication extends Defi{
+public class Defi9Quotient extends Defi{
 
     @Override
     public void executer() throws IOException {
@@ -28,7 +28,9 @@ Network net = new Network();
            bit2= net.receiveMessage();
            NombreBinaire n1 = new NombreBinaire(bit1); 
            NombreBinaire n2 = new NombreBinaire(bit2); 
-           NombreBinaire n3 = n1.multiplication(n2);
+            System.out.println("sdf");
+           NombreBinaire n3 = n1.quotient(n2);
+            System.out.println("adb");
            net.sendMessage(n3.toString());
            //verif si ok ou non
             messageServeur = net.receiveMessage();
@@ -36,4 +38,5 @@ Network net = new Network();
         }
         net.end();    }
     
+
 }
