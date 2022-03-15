@@ -25,8 +25,8 @@ public class DefiFabrique {
             case 6 : defi = new Defi6EstEgal(); break;
             case 7 : defi = new Defi7EstPair(); break;
             case 8 : defi = new Defi8Multiplication(); break;
-            case 9 : throw new UnsupportedOperationException("Défis non implémenté !"); 
-            case 10: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 9 : defi = new Defi9Quotient(); break;
+            case 10: defi = new Defi10Modulo(); break;
             case 11: defi = new Defi11RandomTailleFixee(); break;
             case 12: throw new UnsupportedOperationException("Défis non implémenté !");
             case 13: throw new UnsupportedOperationException("Défis non implémenté !");

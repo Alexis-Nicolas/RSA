@@ -14,8 +14,8 @@ import java.io.IOException;
  *
  * @author alexi
  */
-public class Defi9Quotient extends Defi{
-
+public class Defi10Modulo extends Defi{
+    
     @Override
     public void executer() throws IOException {
         Network net = new Network();
@@ -27,8 +27,10 @@ public class Defi9Quotient extends Defi{
            bit1= net.receiveMessage();
            bit2= net.receiveMessage();
            NombreBinaire n1 = new NombreBinaire(bit1); 
-           NombreBinaire n2 = new NombreBinaire(bit2);            
-           NombreBinaire n3 = n1.quotient(n2);
+           NombreBinaire n2 = new NombreBinaire(bit2); 
+            System.out.println("sdf");
+           NombreBinaire n3 = n1.modulo(n2);
+            System.out.println("adb");
            net.sendMessage(n3.toString());
            //verif si ok ou non
             messageServeur = net.receiveMessage();

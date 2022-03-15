@@ -316,12 +316,50 @@ public class NombreBinaire {
 
      //DEFI 9 - Calcul le quotient dans la division euclidienne de this par mot2
      public NombreBinaire quotient(NombreBinaire mot2) {
-        return null;
+          NombreBinaire r = new NombreBinaire(this);
+           NombreBinaire b = new NombreBinaire(mot2);
+           int i = 0;
+        NombreBinaire q = new NombreBinaire(0);
+        int n = 0;
+        while (!r.estInferieurA(b)){
+        n = abs(r.getTaille()-b.getTaille());
+        NombreBinaire b2 = new NombreBinaire(b);
+        b2.decalage(n);
+        if (r.estInferieurA(b2)){
+           b2 = new NombreBinaire(b);
+            b2.decalage(n-1);
+            n = n-1;
+        }
+        r=r.soustraction(b2);
+        NombreBinaire d = new NombreBinaire((int) Math.pow(2, n));
+        q =q.addition(d);
+        }
+        
+        return q;
      }
      
      //DEFI 10 - Calcul this modulo mot2 via une division euclidienne
      public NombreBinaire modulo(NombreBinaire mot2) {
-         return null;
+        NombreBinaire r = new NombreBinaire(this);
+           NombreBinaire b = new NombreBinaire(mot2);
+           int i = 0;
+        NombreBinaire q = new NombreBinaire(0);
+        int n = 0;
+        while (!r.estInferieurA(b)){
+        n = abs(r.getTaille()-b.getTaille());
+        NombreBinaire b2 = new NombreBinaire(b);
+        b2.decalage(n);
+        if (r.estInferieurA(b2)){
+           b2 = new NombreBinaire(b);
+            b2.decalage(n-1);
+            n = n-1;
+        }
+        r=r.soustraction(b2);
+        NombreBinaire d = new NombreBinaire((int) Math.pow(2, n));
+        q =q.addition(d);
+        }
+        
+        return r;
      }  
      
     //DEFI 11 - Génère un nombre binaire aléatoire de "taille" bits au maximum.
