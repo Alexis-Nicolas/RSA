@@ -404,9 +404,19 @@ public class NombreBinaire {
      
     //DEFI 14 - renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
     public static NombreBinaire random(NombreBinaire min,NombreBinaire max) {
-        //Utiliser les fonctions soustractions et additions ?
-        
-        return null;
+
+        //Différence entre le nombre max et le nombre min
+            NombreBinaire diff = max.soustraction(min);
+            
+            //Nombre aléatoire à ajouter, entre 0 et diff
+            NombreBinaire valeurAjout = NombreBinaire.randomAvecTailleMax(diff.getTaille());
+            while(!valeurAjout.estInferieurA(diff)){
+                valeurAjout = NombreBinaire.randomAvecTailleMax(diff.getTaille());
+            }
+            
+            
+            NombreBinaire nbAEnvoyer = min.addition(valeurAjout);
+        return nbAEnvoyer;
     }
     
      //DEFI 15 - Calcul de l'inverse modulo nombre
