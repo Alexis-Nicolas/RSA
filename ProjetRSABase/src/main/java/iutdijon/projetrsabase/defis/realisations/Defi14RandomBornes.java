@@ -22,19 +22,17 @@ public class Defi14RandomBornes extends Defi {
         
         //Annonce du défi
         String messageServeur = net.receiveMessage();
-        Integer entierRecu;
         
         //reçoit 1er nombre binaire
         String nombreMin = net.receiveMessage();
         NombreBinaire nb_nombreMin = new NombreBinaire(nombreMin);
         
         //reçoit 2ème nombre binaire
-       String nombreMax = net.receiveMessage();
-       NombreBinaire nb_nombreMax = new NombreBinaire(nombreMax);
+        String nombreMax = net.receiveMessage();
+        NombreBinaire nb_nombreMax = new NombreBinaire(nombreMax);
         
         while(!messageServeur.equals("Défi validé")|| !messageServeur.equals("Défi échoué!"))
         {
-            entierRecu = Integer.parseInt(messageServeur);
             
             net.sendMessage(NombreBinaire.random(nb_nombreMin, nb_nombreMax).toString());
             
@@ -42,10 +40,12 @@ public class Defi14RandomBornes extends Defi {
             net.receiveMessage();
             
             //recoit 1er nombre binaire suivant
-            //premierNombre = net.receiveMessage();
+            String premierNombre = net.receiveMessage();
+            nb_nombreMin = new NombreBinaire(premierNombre);
             
             //recoit 2eme nombre binaire suivant
-            //deuxiemeNombre = net.receiveMessage();
+            String deuxiemeNombre = net.receiveMessage();
+            nb_nombreMax = new NombreBinaire(deuxiemeNombre);
             
         }
         net.end();

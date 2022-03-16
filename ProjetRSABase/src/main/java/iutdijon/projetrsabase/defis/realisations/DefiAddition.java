@@ -20,7 +20,6 @@ public class DefiAddition extends Defi{
     public void executer() throws IOException {
          Network net = new Network();
         String messageServeur = net.receiveMessage();
-        System.out.println(messageServeur);
         NombreBinaire nb1;
         NombreBinaire nb2;
         while(!messageServeur.equals("Défi validé")|| !messageServeur.equals("Défi échoué!"))
@@ -28,7 +27,6 @@ public class DefiAddition extends Defi{
             nb1 = new NombreBinaire(net.receiveMessage());
             nb2 = new NombreBinaire(net.receiveMessage());
             NombreBinaire nbRes = nb1.addition(nb2);
-            System.out.println(nbRes);
             net.sendMessage(nbRes.toString());
             //verif si ok ou non
             messageServeur = net.receiveMessage();
