@@ -8,8 +8,9 @@ public class AlgorithmeRSA {
 
     
     //DEFI 17 - Chiffre un morceau (entrée : tailleMorceau, sortie : tailleCle)
-    public static NombreBinaire chiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire e){
-      return null;
+    public static NombreBinaire chiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire e)
+    {
+      return morceau.puissanceModulo(e, N);
     }
    
     //DEFI 18 - Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
