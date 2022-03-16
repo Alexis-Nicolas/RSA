@@ -38,7 +38,7 @@ public class DefiFabrique {
             case 19: throw new UnsupportedOperationException("Défis non implémenté !");
             case 20: defi = new Defi20ClePrive(); break;
             case 21: throw new UnsupportedOperationException("Défis non implémenté !");
-            case 22: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 22: defi = new Defi22Dechiffrer(); break;
             case 23: throw new UnsupportedOperationException("Défis non implémenté !");
             case 24: throw new UnsupportedOperationException("Défis non implémenté !");
             case 25: throw new UnsupportedOperationException("Défis non implémenté !");
