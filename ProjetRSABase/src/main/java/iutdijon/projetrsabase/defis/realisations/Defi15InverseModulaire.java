@@ -28,9 +28,7 @@ public class Defi15InverseModulaire extends Defi{
            bit2= net.receiveMessage();
            NombreBinaire n1 = new NombreBinaire(bit1); 
            NombreBinaire n2 = new NombreBinaire(bit2); 
-            System.out.println("sdf");
            NombreBinaire n3 = n1.inverseModulaire(n2);
-            System.out.println("adb");
            net.sendMessage(n3.toString());
            //verif si ok ou non
             messageServeur = net.receiveMessage();
