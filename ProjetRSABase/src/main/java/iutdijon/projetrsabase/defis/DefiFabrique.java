@@ -32,14 +32,14 @@ public class DefiFabrique {
             case 13: defi = new Defi13PGCD(); break;
             case 14: defi = new Defi14RandomBornes(); break;
             case 15: defi = new Defi15InverseModulaire(); break;
-            case 16: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 16: defi = new Defi23TemoinMiller(); break;
             case 17: defi = new Defi17DechiffrerMorceau(); break;
             case 18: defi = new Defi18Dechiffrer();break;
-            case 19: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 19: defi = new Defi19TestRabinMiller();break;
             case 20: defi = new Defi20ClePrive(); break;
             case 21: throw new UnsupportedOperationException("Défis non implémenté !");
             case 22: defi = new Defi22Dechiffrer(); break;
-            case 23: defi = new Defi23TemoinMiller(); break;
+            case 23: throw new UnsupportedOperationException("Défis non implémenté !");
             case 24: throw new UnsupportedOperationException("Défis non implémenté !");
             case 25: throw new UnsupportedOperationException("Défis non implémenté !");
             default : throw new UnsupportedOperationException("Défis non implémenté !");

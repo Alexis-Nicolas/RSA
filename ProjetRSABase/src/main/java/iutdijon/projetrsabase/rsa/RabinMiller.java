@@ -1,5 +1,7 @@
 package iutdijon.projetrsabase.rsa;
 
+import static java.lang.Math.random;
+
 
 /**
  * Description de la classe
@@ -39,7 +41,17 @@ public class RabinMiller {
     
     //DEFI 19 - Test de RabinMiller, test probabilistiquement que n est premier (proba erreur = 1/4^k)
     public static boolean testRabinMiller(NombreBinaire n) {
-        return false;
+        boolean b =false;
+        int e = Integer.parseInt(n.toString(),2);
+        for (int i=0;i<25;i++){
+            int a=  (int) (random()*((e-2)-2));
+            if(temoin(n,new NombreBinaire(a))==false){
+                b=true;
+                break;
+            }
+
+        }
+        return b;
     }
     
     //DEFI 23 - Renvoie le plus petit nombre premier supérieur à min
