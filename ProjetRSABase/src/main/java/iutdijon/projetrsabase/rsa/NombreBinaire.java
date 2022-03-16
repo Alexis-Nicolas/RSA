@@ -193,6 +193,17 @@ public class NombreBinaire {
         } 
         return this;
      }
+	 
+	 //DEFI 3 - bis
+     public NombreBinaire decalageDroit(int n) {
+        NombreBinaire nb = new NombreBinaire(this);
+        this.forcerTaille(this.getTaille()- n);
+        
+        for(int i = 0 ; i < this.getTaille(); i++){
+            set(i,nb.get(i+1)); 
+        } 
+        return this;
+     }
      
      //DEFI 4 - renvoie le resultat de l'addition de this avec mot3
      public NombreBinaire soustraction(NombreBinaire mot2) {
@@ -377,24 +388,19 @@ public class NombreBinaire {
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
-         NombreBinaire puissance = new NombreBinaire("10");
-         NombreBinaire sauv = this.multiplication(this);
-          while(puissance.estInferieurA(exposant)){
-             if(puissance.estEgal(exposant.soustraction(new NombreBinaire("1")))){
-                 sauv=sauv.multiplication(this);
-                 sauv=sauv.modulo(m);
-                 puissance.addition(new NombreBinaire("1"));
-             }
-             else{
-                sauv=sauv.multiplication(sauv);
-                sauv=sauv.modulo(m);
-                puissance.multiplication(new NombreBinaire("10"));
-                System.out.println(sauv.toString());
-                System.out.println(puissance.toString());
-             }
-              
-         }
-         return sauv;
+         NombreBinaire sauv = new NombreBinaire(1);
+        NombreBinaire base = this;
+        
+        while((!exposant.estInferieurA(new NombreBinaire(0)))&&(!exposant.estEgal(new NombreBinaire(0)))){
+            if(!exposant.estPair()){
+                sauv = sauv.multiplication(base).modulo(m);
+            }
+            exposant = exposant.decalageDroit(1);
+                 
+            base = base.multiplication(base).modulo(m);
+
+        }
+        return sauv;
      }
      
      //DEFI 13 - Calcul le PGCD de this et mot2
