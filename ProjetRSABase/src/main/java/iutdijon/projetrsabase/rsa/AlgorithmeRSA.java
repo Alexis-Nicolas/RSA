@@ -14,7 +14,7 @@ public class AlgorithmeRSA {
    
     //DEFI 18 - Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
     public static NombreBinaire dechiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire d){
-       return null;
+       return morceau.puissanceModulo(d, N);
     }
 
     //DEFI 21 - Chiffre le message avec les clés données
