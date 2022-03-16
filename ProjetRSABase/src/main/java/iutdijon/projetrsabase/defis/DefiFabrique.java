@@ -31,7 +31,7 @@ public class DefiFabrique {
             case 12: throw new UnsupportedOperationException("Défis non implémenté !");
             case 13: defi = new Defi13PGCD(); break;
             case 14: defi = new Defi14RandomBornes(); break;
-            case 15: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 15: defi = new Defi15InverseModulaire(); break;
             case 16: throw new UnsupportedOperationException("Défis non implémenté !");
             case 17: throw new UnsupportedOperationException("Défis non implémenté !");
             case 18: throw new UnsupportedOperationException("Défis non implémenté !");
