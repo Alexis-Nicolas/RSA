@@ -131,52 +131,50 @@ public class NombreBinaire {
      
      //DEFI 2 - Renvoie le résultat de l'addition de this avec mot2
      public NombreBinaire addition(NombreBinaire mot2) {
-         NombreBinaire R = new NombreBinaire();
-         int retenu = 0;
-         int bit1  =0;
-         int bit2 =0;
-         int val = 0;
-         int result =0;
-         int i=0;
-         boolean b1 = false;
-         boolean b2 = false;
-         if (mot2.getTaille()<this.getTaille()){
-             val = this.getTaille()-mot2.getTaille();
-             for(int j = 0;j<val;j++){
-                 mot2.set(mot2.getTaille()+j, false);
+         int R =0;
+         ArrayList<NombreBinaire> nb1 = this.scinder(1);
+         ArrayList<NombreBinaire> nb2 = mot2.scinder(1);
+         int b1 ;
+         int b2 ;
+         int resI=1;
+         String res = "";
+         int i = 0;
+         while(resI!=0||i<=this.getTaille()||i<=mot2.getTaille()){
+             if(i<this.getTaille()){
+                b1 = Integer.parseInt(nb1.get(i).toString());
              }
+             else{
+                 b1=0;
+             }
+             if(i<mot2.getTaille()){
+                b2 = Integer.parseInt(nb2.get(i).toString());
+             }
+             else{
+                 b2=0;
+             }
+             resI = b1+b2+R;
+             if(resI==0){
+                 res+="0";
+                 R=0;
+             }
+             if(resI==1){
+                 res+="1";
+                 R=0;
+             }
+             if(resI==2){
+                 res+="0";
+                 R=1;
+             }
+             if(resI==3){
+                 res+="1";
+                 R=1;
+             }
+             i++;
          }
-         while(i<=this.getTaille()||i<=mot2.getTaille()){
-             
-            b1= this.get(i);
-            b2=mot2.get(i);
-            if (b1){
-                bit1 = 1;
-            }else if (!b1){
-                bit1=0;
-            }
-            if (b2){
-                bit2 = 1;
-            }else if (!b2){
-                bit2=0;
-            }
-            if ((bit1+bit2+retenu)==0){
-                R.set(i, false);
-                retenu=0;
-            }else if ((bit1+bit2+retenu)==1){
-                R.set(i, true);
-                retenu=0;
-            }else if ((bit1+bit2+retenu)==2){
-                R.set(i, false);
-                retenu=1;
-            }else if ((bit1+bit2+retenu)==3){
-                R.set(i, true);
-                retenu=1;
-            }
-            i++;
-             
-         }
-        return R;
+         StringBuilder strb = new StringBuilder(res);
+         res = strb.reverse().toString();
+         NombreBinaire nbb = new NombreBinaire(res);
+        return nbb;
      }
      
      //DEFI 3 - Caclule le décalage de n bits (multiplie par 2^n)
@@ -377,29 +375,32 @@ public class NombreBinaire {
     
      //DEFI 12 - Calcul de this^exposant modulo m par exponentiation modulaire rapide
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
-         NombreBinaire puissance = new NombreBinaire("10");
-         NombreBinaire sauv = this.multiplication(this);
-          while(puissance.estInferieurA(exposant)){
-             if(puissance.estEgal(exposant.soustraction(new NombreBinaire("1")))){
-                 sauv=sauv.multiplication(this);
-                 sauv=sauv.modulo(m);
-                 puissance.addition(new NombreBinaire("1"));
-             }
-             else{
-                sauv=sauv.multiplication(sauv);
-                sauv=sauv.modulo(m);
-                puissance.multiplication(new NombreBinaire("10"));
-                System.out.println(sauv.toString());
-                System.out.println(puissance.toString());
-             }
-              
-         }
-         return sauv;
+         return null;
      }
      
      //DEFI 13 - Calcul le PGCD de this et mot2
      public NombreBinaire PGCD(NombreBinaire mot2) {
-        return null;
+         
+         // Initialisation
+         NombreBinaire a = new NombreBinaire(this);
+         NombreBinaire b = new NombreBinaire(mot2);
+         
+         // Si a < b on échange a et b
+         if(a.estInferieurA(b)){
+            NombreBinaire tmp = new NombreBinaire(a);
+            a = b;
+            b = tmp;
+         }
+         
+         // Tant que b n'est pas nul, on remplace b par a%b et a par b
+         while(!b.estEgal(new NombreBinaire(0))){
+             NombreBinaire previousB = new NombreBinaire(b);
+             b = a.modulo(b);
+             a = previousB;;
+         }
+         
+        // Quand b est nul, on renvoie a
+        return a;
      }
      
     //DEFI 14 - renvoie un nombre aléatoire entre min (inclu) et max (non inclu)
