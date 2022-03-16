@@ -28,7 +28,7 @@ public class DefiFabrique {
             case 9 : defi = new Defi9Quotient(); break;
             case 10: defi = new Defi10Modulo(); break;
             case 11: defi = new Defi11RandomTailleFixee(); break;
-            case 12: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 12: defi =  new Defi12PuissanceModulo(); break;
             case 13: defi = new Defi13PGCD(); break;
             case 14: defi = new Defi14RandomBornes(); break;
             case 15: defi = new Defi15InverseModulaire(); break;
