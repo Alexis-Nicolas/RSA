@@ -33,7 +33,7 @@ public class DefiFabrique {
             case 14: defi = new Defi14RandomBornes(); break;
             case 15: defi = new Defi15InverseModulaire(); break;
             case 16: throw new UnsupportedOperationException("Défis non implémenté !");
-            case 17: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 17: defi = new Defi17DechiffrerMorceau(); break;
             case 18: defi = new Defi18Dechiffrer();break;
             case 19: throw new UnsupportedOperationException("Défis non implémenté !");
             case 20: defi = new Defi20ClePrive(); break;
