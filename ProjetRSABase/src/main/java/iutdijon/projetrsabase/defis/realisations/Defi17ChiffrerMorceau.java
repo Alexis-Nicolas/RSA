@@ -16,7 +16,7 @@ import java.io.IOException;
  * Défi déchiffrer morceau
  * @author Mathis Poncet
  */
-public class Defi17DechiffrerMorceau extends Defi
+public class Defi17ChiffrerMorceau extends Defi
 {
 
     @Override
@@ -39,7 +39,6 @@ public class Defi17DechiffrerMorceau extends Defi
             nombreE = new NombreBinaire(messageWithE);
             NombreBinaire morceauChiffre = 
                     AlgorithmeRSA.chiffrerMorceau(nombreM, nombreN, nombreE);
-            morceauChiffre.forcerTaille(ParametresRSA.getTailleCle());
             //on envoie la clé privée générée
             net.sendMessage(morceauChiffre.toString());
             //reçoit ok ou non, vérifie que le défie a été
