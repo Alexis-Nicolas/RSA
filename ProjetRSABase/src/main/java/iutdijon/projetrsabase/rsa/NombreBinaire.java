@@ -390,16 +390,18 @@ public class NombreBinaire {
      public NombreBinaire puissanceModulo(NombreBinaire exposant, NombreBinaire m) {
          NombreBinaire sauv = new NombreBinaire(1);
         NombreBinaire base = this;
+        NombreBinaire d = new NombreBinaire(exposant);
         
-        while((!exposant.estInferieurA(new NombreBinaire(0)))&&(!exposant.estEgal(new NombreBinaire(0)))){
-            if(!exposant.estPair()){
+        while((!d.estInferieurA(new NombreBinaire(0)))&&(!d.estEgal(new NombreBinaire(0)))){
+            if(!d.estPair()){
                 sauv = sauv.multiplication(base).modulo(m);
             }
-            exposant = exposant.decalageDroit(1);
+            d = d.decalageDroit(1);
                  
             base = base.multiplication(base).modulo(m);
 
         }
+         System.out.println("puissance modulo : "+sauv.toString());
         return sauv;
      }
      

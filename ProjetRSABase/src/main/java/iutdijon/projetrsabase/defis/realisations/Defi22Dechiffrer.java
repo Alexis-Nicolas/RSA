@@ -35,10 +35,8 @@ public class Defi22Dechiffrer extends Defi{
             nombreM = new NombreBinaire(messageWithM);
             nombreN = new NombreBinaire(messageWithN);
             nombreD = new NombreBinaire(messageWithD);
-            NombreBinaire dechiffrer = 
-                    AlgorithmeRSA.dechiffrer(nombreM, nombreN, nombreD);
-            
-
+            NombreBinaire dechiffrer = AlgorithmeRSA.dechiffrer(nombreM, nombreN, nombreD);
+            System.out.println(dechiffrer.toString());
             //on envoie la clé privée générée
             net.sendMessage(dechiffrer.toString());
             //reçoit ok ou non, vérifie que le défie a été

@@ -1,5 +1,7 @@
 package iutdijon.projetrsabase.rsa;
 
+import java.util.ArrayList;
+
 /**
  * Description de la classe
  * @author Matthieu
@@ -18,6 +20,7 @@ public class AlgorithmeRSA {
         NombreBinaire res = new NombreBinaire();
         res = morceau.puissanceModulo(d, N);
         res.forcerTaille(d.getTaille());
+        System.out.println("Morceau déchiffré : "+res.toString());
         return res;
     }
 
@@ -29,26 +32,15 @@ public class AlgorithmeRSA {
     //DEFI 22 - Déchiffre le message avec les clés données
     public static NombreBinaire dechiffrer(NombreBinaire messageADechiffrer, NombreBinaire N, NombreBinaire d) {
         NombreBinaire res=new NombreBinaire();
-        NombreBinaire temp=  new NombreBinaire();
-        int taille = 1;
-        if(d.getTaille()!=0){
-            taille=messageADechiffrer.getTaille()/d.getTaille();
+        NombreBinaire temp = new NombreBinaire();
+        NombreBinaire morceau = new NombreBinaire();
+        ArrayList<NombreBinaire> Nb = messageADechiffrer.scinder(d.getTaille());
+        for(int i=0;i<Nb.size();i++){
+            morceau = Nb.get(i);
+            morceau = AlgorithmeRSA.dechiffrerMorceau(morceau, N, d);
+            res=res.concatenation(morceau);
+            System.out.println("Message : "+res.toString());
         }
-        System.out.println("d = " + d.getTaille());
-      
-        for(int h=0; h <taille;h++){
-            for(int i=0;i<d.getTaille();i++){
-                temp.set(i, messageADechiffrer.get(i));
-            }
-            messageADechiffrer.decalageDroit(d.getTaille());
-            temp=dechiffrerMorceau(temp, N, d);
-            for(int j=res.getTaille();j<res.getTaille()+temp.getTaille();j++){
-                res.set(j,temp.get(j));
-            }
-            temp=new NombreBinaire();
-        }
-        
-        System.out.println(res.getTaille());
         return res;
     }
 }
