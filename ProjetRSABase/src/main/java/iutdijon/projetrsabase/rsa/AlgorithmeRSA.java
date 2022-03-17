@@ -12,7 +12,9 @@ public class AlgorithmeRSA {
     //DEFI 17 - Chiffre un morceau (entrée : tailleMorceau, sortie : tailleCle)
     public static NombreBinaire chiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire e)
     {
-      return morceau.puissanceModulo(e, N);
+      NombreBinaire morceauChiffre = morceau.puissanceModulo(e, N);
+      morceauChiffre.forcerTaille(ParametresRSA.getTailleCle());
+      return morceauChiffre;
     }
    
     //DEFI 18 - Déchiffre un morceau (entrée : tailleCle, sortie : tailleMorceau)
@@ -25,8 +27,17 @@ public class AlgorithmeRSA {
     }
 
     //DEFI 21 - Chiffre le message avec les clés données
-    public static NombreBinaire chiffrer(NombreBinaire messageAChiffrer, NombreBinaire N, NombreBinaire e) {
-        return null;
+    public static NombreBinaire chiffrer(NombreBinaire messageAChiffrer, NombreBinaire N, NombreBinaire e) 
+    {
+        ArrayList<NombreBinaire> nombreBinaireScinde =
+                messageAChiffrer.scinder(ParametresRSA.getTailleMorceau());
+        NombreBinaire nombreBinaireChiffre = new NombreBinaire();
+        for(NombreBinaire morceau: nombreBinaireScinde)
+        {
+            nombreBinaireChiffre = 
+                    nombreBinaireChiffre.concatenation(chiffrerMorceau(morceau, N, e));
+        }
+        return nombreBinaireChiffre;
     }
 
     //DEFI 22 - Déchiffre le message avec les clés données
