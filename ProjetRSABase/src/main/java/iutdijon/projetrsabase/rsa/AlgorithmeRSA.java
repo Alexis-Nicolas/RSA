@@ -21,7 +21,7 @@ public class AlgorithmeRSA {
     public static NombreBinaire dechiffrerMorceau(NombreBinaire morceau, NombreBinaire N, NombreBinaire d){
         NombreBinaire res = new NombreBinaire();
         res = morceau.puissanceModulo(d, N);
-        res.forcerTaille(d.getTaille());
+        res.forcerTaille(ParametresRSA.getTailleMorceau());
         System.out.println("Morceau déchiffré : "+res.toString());
         return res;
     }
@@ -45,7 +45,7 @@ public class AlgorithmeRSA {
         NombreBinaire res=new NombreBinaire();
         NombreBinaire temp = new NombreBinaire();
         NombreBinaire morceau = new NombreBinaire();
-        ArrayList<NombreBinaire> Nb = messageADechiffrer.scinder(d.getTaille());
+        ArrayList<NombreBinaire> Nb = messageADechiffrer.scinder(ParametresRSA.getTailleCle());
         for(int i=0;i<Nb.size();i++){
             morceau = Nb.get(i);
             morceau = AlgorithmeRSA.dechiffrerMorceau(morceau, N, d);
