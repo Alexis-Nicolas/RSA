@@ -17,7 +17,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Defi defi = DefiFabrique.creer(22);
+        Defi defi = DefiFabrique.creer(16);
         try {
             defi.executer();
         } catch (IOException ex) {

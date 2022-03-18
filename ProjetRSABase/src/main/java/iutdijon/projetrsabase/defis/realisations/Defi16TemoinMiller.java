@@ -15,7 +15,7 @@ import java.io.IOException;
  *
  * @author rc438799
  */
-public class Defi23TemoinMiller extends Defi{
+public class Defi16TemoinMiller extends Defi{
 
     @Override
     public void executer() throws IOException {

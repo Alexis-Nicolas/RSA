@@ -401,7 +401,6 @@ public class NombreBinaire {
             base = base.multiplication(base).modulo(m);
 
         }
-         System.out.println("puissance modulo : "+sauv.toString());
         return sauv;
      }
      

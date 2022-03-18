@@ -30,7 +30,6 @@ public class Defi12PuissanceModulo extends Defi{
             nb2 = new NombreBinaire(net.receiveMessage());
             nb3 = new NombreBinaire(net.receiveMessage());
             String res = nb1.puissanceModulo(nb2, nb3).toString();
-            System.out.println(res);
             net.sendMessage(res);
             messageServeur = net.receiveMessage();
         }

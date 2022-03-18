@@ -32,7 +32,7 @@ public class DefiFabrique {
             case 13: defi = new Defi13PGCD(); break;
             case 14: defi = new Defi14RandomBornes(); break;
             case 15: defi = new Defi15InverseModulaire(); break;
-            case 16: defi = new Defi23TemoinMiller(); break;
+            case 16: defi = new Defi16TemoinMiller(); break;
             case 17: defi = new Defi17ChiffrerMorceau(); break;
             case 18: defi = new Defi18Dechiffrer();break;
             case 19: defi = new Defi19TestRabinMiller();break;
