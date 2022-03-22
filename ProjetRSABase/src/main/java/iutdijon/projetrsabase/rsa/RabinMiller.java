@@ -31,7 +31,7 @@ public class RabinMiller {
         for(int i=0;i<s-1;i++){
             x = x.puissanceModulo(new NombreBinaire(2), n);
             
-            if(x.estEgal(n.soustraction(new NombreBinaire(1)))){
+            if(x.estEgal(new NombreBinaire(1)) || x.estEgal(n.soustraction(new NombreBinaire("1")))){
                 res = false;
             }
         }
@@ -61,6 +61,27 @@ public class RabinMiller {
     
     //DEFI 23 - Renvoie le plus petit nombre premier supérieur à min
     public static NombreBinaire nombrePremier(NombreBinaire min) {
-        return null;
+        
+        // Initialisation
+        boolean isPrime = false;
+        NombreBinaire un = new NombreBinaire(1);
+        
+        // Tant que le nombre n'est pas premier
+        while(!isPrime){
+            
+            // S'il est pair on n'a pas besoin de tester s'il est premier
+            if(min.estPair()){
+                min = min.addition(un);
+            }else{
+                // Si le teste passe on renvoie le résultat sinon on incrémente
+                if(RabinMiller.testRabinMiller(min)){
+                    isPrime = true;
+                }else{
+                    min = min.addition(un);
+                }
+            }
+        }
+        
+        return min;
     }
 }

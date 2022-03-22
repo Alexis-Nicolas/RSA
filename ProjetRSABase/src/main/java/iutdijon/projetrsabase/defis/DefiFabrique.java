@@ -39,7 +39,7 @@ public class DefiFabrique {
             case 20: defi = new Defi20ClePrive(); break;
             case 21: defi = new Defi21Chiffrer(); break;
             case 22: defi = new Defi22Dechiffrer(); break;
-            case 23: throw new UnsupportedOperationException("Défis non implémenté !");
+            case 23: defi = new Defi23NombrePremier(); break;
             case 24: throw new UnsupportedOperationException("Défis non implémenté !");
             case 25: throw new UnsupportedOperationException("Défis non implémenté !");
             default : throw new UnsupportedOperationException("Défis non implémenté !");
