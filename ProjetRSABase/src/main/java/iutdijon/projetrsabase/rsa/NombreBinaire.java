@@ -344,7 +344,8 @@ public class NombreBinaire {
             n = n-1;
         }
         r=r.soustraction(b2);
-        NombreBinaire d = new NombreBinaire((int) Math.pow(2, n));
+        NombreBinaire puissance = new NombreBinaire(1);
+        NombreBinaire d = puissance.decalage(n);
         q =q.addition(d);
         }
         
@@ -368,7 +369,8 @@ public class NombreBinaire {
             n = n-1;
         }
         r=r.soustraction(b2);
-        NombreBinaire d = new NombreBinaire((int) Math.pow(2, n));
+        NombreBinaire puissance = new NombreBinaire(1);
+        NombreBinaire d = puissance.decalage(n);
         q =q.addition(d);
         }
         
