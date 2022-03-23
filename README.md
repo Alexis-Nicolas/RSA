@@ -1,3 +1,2 @@
 # RSA
-Implémentation du protocole SSL
-(certains devraient push plus souvent)
+Implémentation de RSA en Java
