@@ -14,7 +14,8 @@ public class RabinMiller {
     public static boolean temoin(NombreBinaire n, NombreBinaire a) {
         
         boolean res = true;
-        NombreBinaire d = n.soustraction(new NombreBinaire(1));
+        NombreBinaire un = n.soustraction(new NombreBinaire(1));
+        NombreBinaire d= un;
         int s = 0;
         
         while(d.estPair()){
@@ -24,14 +25,14 @@ public class RabinMiller {
         
         NombreBinaire x = a.puissanceModulo(d, n);
         
-        if(x.estEgal(new NombreBinaire(1))){
+        if(x.estEgal(new NombreBinaire(1)) || x.estEgal(un)){
             res = false;
         }
         
         for(int i=0;i<s-1;i++){
             x = x.puissanceModulo(new NombreBinaire(2), n);
             
-            if(x.estEgal(new NombreBinaire(1)) || x.estEgal(n.soustraction(new NombreBinaire("1")))){
+            if(x.estEgal(un)){
                 res = false;
             }
         }
